@@ -65,7 +65,7 @@ function App() {
   }
 
   const addTask = () => {
-    let id = +tasks[tasks.length - 1].id + 1
+    let id = tasks.length > 0 ? +tasks[tasks.length - 1].id + 1 : 1;
     firestore.collection('task').doc(id + ('')).set({ id, name })
   }
 
@@ -73,6 +73,7 @@ function App() {
   return (
     <div >
       <h1>React + Firebase Firestore CRUD</h1>
+      <h4>Affan Pathan 6035512016</h4>
       <input type='text' name='name' onChange={(e) => { setName(e.target.value) }} />
       <div>
         <button onClick={addTask}>Submit</button>
